@@ -80,7 +80,7 @@ const retired = shoes.filter(
   status,
   rating,
   colorway,
-  onePlusPairs,
+  _onePlusPairs,
   photo,
   notes
 ] = columns;
