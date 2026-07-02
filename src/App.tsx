@@ -61,12 +61,15 @@ const retired = shoes.filter(
   useEffect(() => {
   async function loadData() {
     const res = await fetch(SHEET_URL);
-    const text = await res.text();
+const text = await res.text();
 
-    const rows = text.trim().split("\n").slice(1);
+const rows = text.trim().split("\n").slice(1);
 
-    const parsed = rows
-      .map((row) => {
+console.log("Rows:", rows.length);
+console.log(rows.slice(0, 10));
+
+const parsed = rows
+  .map((row) => {
         const columns = row.split(",");
 
         if (columns.length < 5) return null;
@@ -242,7 +245,7 @@ const filteredShoes = shoes.filter((shoe) => {
                 alt={shoe.name}
                 style={{
                   width: "100%",
-                  height: "160px",
+                  height: "250px",
                   objectFit: "cover",
                   borderRadius: "12px",
                 }}
@@ -312,7 +315,7 @@ const filteredShoes = shoes.filter((shoe) => {
             background: "#18181b",
             borderRadius: "16px",
             padding: "2rem",
-            maxWidth: "500px",
+            maxWidth: "800px",
             width: "100%",
             display: "flex",
             flexDirection: "column",
@@ -321,15 +324,15 @@ const filteredShoes = shoes.filter((shoe) => {
         >
           {selectedShoe.photo && (
             <img
-              src={selectedShoe.photo}
-              alt={selectedShoe.name}
-              style={{
-                width: "100%",
-                height: "220px",
-                objectFit: "cover",
-                borderRadius: "12px",
-              }}
-            />
+  src={selectedShoe.photo}
+  alt={selectedShoe.name}
+  style={{
+    width: "100%",
+    maxHeight: "500px",
+    objectFit: "contain",
+    borderRadius: "12px",
+  }}
+/>
           )}
 
           <div style={{ fontSize: "1.5rem", fontWeight: 700 }}>
